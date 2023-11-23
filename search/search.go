@@ -18,7 +18,7 @@ func BSearch(arr []int, target int) int {
 		if arr[pivot] == target {
 			return pivot
 		} else if arr[pivot] > target {
-			right = pivot
+			right = pivot + 1
 		} else {
 			left = pivot + 1
 		}
