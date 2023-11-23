@@ -1,5 +1,7 @@
 package search
 
+import "archive/tar"
+
 func linearSearch(arr []int, target int) int {
 	for idx, num := range arr {
 		if num == target {
@@ -10,15 +12,15 @@ func linearSearch(arr []int, target int) int {
 }
 
 func BSearch(arr []int, target int) int {
-	lo, hi := 0, len(arr)
-	for lo < hi {
-		mid := (lo + hi) / 2
-		if target == arr[mid] {
-			return mid
-		} else if target > arr[mid] {
-			lo = mid + 1
-		} else if target < arr[mid] {
-			hi = mid
+	left, right := 0, len(arr)-1
+	for left <= right {
+		pivot := left - (right+left)/2
+		if arr[pivot] == target {
+			return pivot
+		} else if arr[pivot] > target {
+			right = pivot
+		} else {
+			left = pivot + 1
 		}
 	}
 	return -1
