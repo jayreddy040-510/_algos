@@ -12,15 +12,14 @@ func linearSearch(arr []int, target int) int {
 }
 
 func BSearch(arr []int, target int) int {
-	left, right := 0, len(arr)-1
-	for left <= right {
-		pivot := left - (right+left)/2
+	for i, j := 0, len(arr)-1; i <= j; {
+		pivot := i + (j-i)/2
 		if arr[pivot] == target {
 			return pivot
-		} else if arr[pivot] > target {
-			right = pivot + 1
+		} else if arr[pivot] < target {
+			i = pivot + 1
 		} else {
-			left = pivot + 1
+			j = pivot - 1
 		}
 	}
 	return -1
