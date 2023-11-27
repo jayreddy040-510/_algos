@@ -1,7 +1,5 @@
 package search
 
-import "archive/tar"
-
 func linearSearch(arr []int, target int) int {
 	for idx, num := range arr {
 		if num == target {
