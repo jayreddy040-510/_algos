@@ -13,3 +13,7 @@ def bsearch(sorted_nums: List[int], target: int) -> int:
         else:
             j = pivot - 1
     return -1
+
+
+if __name__ == "__main__":
+    print(bsearch([1, 3, 5, 6, 7, 8, 9, 12, 13], 5))
